@@ -10,12 +10,12 @@ public class graph_coloring{
     }
 
     public Graph graph_creation(int v){
-        Graph G1 = new graph();
-        for(int i=1;i<V+1;i++){
-            for(int j =0;j<V+1;j++){
+        Graph G1 = new Graph();
+        for(int i=1;i<v+1;i++){
+            for(int j =0;j<v+1;j++){
                 if(i!=j){
                     Node temp1 = new Node(i,j);
-                    for(int k=0;k<V+1;k++){
+                    for(int k=0;k<v+1;k++){
                         if(k!=i){
                             Node temp2 = new Node(i,k);
                             G1.addEdge(temp1,temp2);
@@ -38,7 +38,7 @@ class Graph{
 
     public list<list_node> adj;   
 
-    public graph(){
+    public Graph(){
         adj = new list();
     }
 
@@ -55,11 +55,11 @@ class Graph{
             return;
         }
         while(temp.next!=null){
-            if(temp.data.head.compare(a)){
+            if(temp.data.head.compare(a)==1){
                 temp.data.insert(b);
                 search1=1;
             }
-            if(temp.data.head.compare(b)){
+            if(temp.data.head.compare(b)==1){
                 temp.data.insert(a);
                 search2=1;   
             }
@@ -78,27 +78,25 @@ class Graph{
             this.adj.insert(new list_node(q));
             
         }
+    }
 
         public void print_graph(){
-            list<Node> temp = adj.head;
+            list_node temp = adj.head;
             while(temp!=null){
-                System.out.println("("+temp.head.team1+","+temp.head.team2+")");
-                Node temp2 = temp.head;
+                System.out.println("("+temp.data.head.team1+","+temp.data.head.team2+")");
+                Node temp2 = temp.data.head;
                 while(temp2!=null){
-                    System.out.println("("+temp2.team1+","+temp.head.team2+")");
+                    System.out.println("("+temp2.team1+","+temp2.team2+")");
                     temp2 = temp2.next;
                 }
                 temp = temp.next;
             }
         }
-    }
-
-    public addVertex(){
-
-    }
-
-
 }
+
+   
+
+
 
 
 class list_node{
@@ -109,7 +107,7 @@ class list_node{
         this.data = null;
         next=null;
     }
-    public list_node(data){
+    public list_node(list<Node> data){
         this.data = data;
         next=null;
     }
@@ -128,7 +126,7 @@ class list<E>{
 
 
 
-    public insert(E h){
+    public void insert(E h){
         E temp = this.head;
         if(temp!=null)
         {
