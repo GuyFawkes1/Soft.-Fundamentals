@@ -9,14 +9,19 @@ class LinkedList():
         temp= self.head
         if self.head:
             while temp.next:
+                if temp.compare(new_element)==1:
+                    return
                 temp=temp.next
             temp.next=new_element
+            if temp.compare(new_element)==1:
+                return
+            temp.next=node(new_element.team1,new_element.team2)
         else:
             self.head=new_element
     def search(self, element):
-        current = temp.head
+        current = self.head
         while current:
-            if current is element:
+            if current.compare(element)==1:
                 return True
             current = current.next
         return False
