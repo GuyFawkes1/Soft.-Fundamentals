@@ -8,7 +8,7 @@ class graph():
     def __init__(self):
         self.adj = main_list()
 
-    def add_edge(self, node_a, node_b):
+    def add_edge(self, a, b):
         search1 = 0
         search2 = 0
         temp = self.adj.head
