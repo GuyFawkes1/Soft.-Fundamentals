@@ -120,7 +120,8 @@ class Graph{
             list q = new list(new Node(b.team1,b.team2));
             q.insert(new Node(a.team1,a.team2));
             
-            this.adj.insert(new list_node(q));}
+            this.adj.insert(new list_node(q));
+            }
             // this.print_graph();
             // System.out.println("Ohbgvfcd");
             return;
