@@ -9,5 +9,9 @@ class main_list():
 
     def insert(new_list_node):
         temp = self.head
-        new_list_node.next = self.head
-        self.head = new_list_node
+        if temp!=None:
+            while temp.next!=None:
+                temp=temp.next
+            temp.next=list_node(new_list_node.data)
+        else:
+            self.head=list_node(new_list_node.data)
