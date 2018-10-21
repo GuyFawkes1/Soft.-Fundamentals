@@ -6,9 +6,13 @@ class LinkedList():
         self.head = head
 
     def insert(self, new_element):
-        new_element.next = self.head
-        self.head = new_element
-
+        temp= self.head
+        if self.head:
+            while temp.next:
+                temp=temp.next
+            temp.next=new_element
+        else:
+            self.head=new_element
     def search(self, element):
         current = temp.head
         while current:
