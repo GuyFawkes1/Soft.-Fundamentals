@@ -21,6 +21,21 @@ class graph():
         if vertex1 not in temp2:
             temp2.append(vertex1)
 
+    def cost(self):
+        cost = 0
+        for i in range(0,vertices):
+            for j in range(0,len(adj[i])):
+                if cost_matrix[i][adj[i][j]]>0:
+                    cost = cost+cost_matrix[i][adj[i][j]]
+        return cost
+
+
+    def print(self):
+        for i in range(0,vertices):
+            for j in range(0,len(adj[i])):
+                print((i,adj[i][j]))
+
+
     def get_vertices(self):
         return self.vertices
 

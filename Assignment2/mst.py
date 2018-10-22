@@ -3,6 +3,7 @@ import collections
 from graph import *
 from prims import *
 from kruskals import *
+import time
 
 
 def assignment(cost_matrix):
@@ -17,14 +18,19 @@ def assignment(cost_matrix):
                 print((i,j))
                 gr.add_edge(i, j)
 
-    print(gr.adj[1])
+    
 
- 
+    start_time = float(round(time.time() * 1000, 5))
+    mst_prims = prims(gr)
+    end_time = float(round(time.time() * 1000, 5))
+
     print('Prims algorithm MST(total cost: ', end='')
-    # prims(gr)
+    
     # gr.cost_matrix = cost_matrix
+    start_time = float(round(time.time() * 1000, 5))
     mst_krus = kruskals(gr)
-    print(mst_krus.cost_matrix)
+    end_time = float(round(time.time() * 1000, 5))
+    
 
 
 

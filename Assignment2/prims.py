@@ -1,8 +1,6 @@
 import collections
 from graph import *
-import time
 # start_time = time.time()
-start_time = float(round(time.time() * 1000, 5))
 
 
 def prims(graph_G):
