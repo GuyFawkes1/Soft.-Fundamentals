@@ -1,67 +1,25 @@
-from list_node import *
-from node import *
-from LinkedList import *
-from main_list import *
+import collections
 
 
 class graph():
-    def __init__(self):
-        self.adj = main_list()
+    def __init__(self, vertices, cost_matrix):
+        self.vertices = vertices
+        self.cost_matrix = cost_matrix
+        self.adj = [None]*len(vertices)
 
-    def add_edge(self, a, b):
-        search1 = 0
-        search2 = 0
-        temp = self.adj.head
-        if(temp == None):
-            p = LinkedList(node(a.team1, a.team2))
-            p.insert(node(b.team1, b.team2))
-            self.adj.insert(List_node(p))
+    def has_edge(vertex1, vertex2):
+        if self.cost_matrix[vertex1-1][vertex2-1] > 0:
+            return True
+        return False
 
-            if(a.compare(b) == 1):
-                return
-            else:
-                q = LinkedList(node(b.team1, b.team2))
-                q.insert(node(a.team1, a.team2))
+    def add_edge(vertex1, vertex2):
+        # self.cost_matrix[vertex1-1][vertex2-1]=self.cost_matrix[vertex1-1][vertex2-1]+weight
+        temp1 = self.adj[vertex1-1]
+        if vertex2 not in temp1:
+            temp1.append(vertex2)
+        temp2 = self.adj[vertex2-1]
+        if vertex1 not in temp2:
+            temp2.append(vertex1)
 
-                self.adj.insert(List_node(q))
-                # // this.print_graph();
-                # // System.out.println("Ohbgvfcd");
-                return
-
-        while(temp.next != None):
-                # // System.out.print("d1");
-            if(temp.data.head.compare(a) == 1):
-                temp.data.insert(b)
-                search1 = 1
-            if(temp.data.head.compare(b) == 1):
-                temp.data.insert(a)
-                search2 = 1
-            temp = temp.next
-
-        if(search1 == 0):
-            if(temp.data.head.compare(a) == 1):
-                temp.data.insert(b)
-            else:
-                p = LinkedList(a)
-                p.insert(b)
-                self.adj.insert(List_node(p))
-
-        if(search2 == 0):
-            if(temp.data.head.compare(b) == 1):
-                temp.data.insert(a)
-            else:
-                q = LinkedList(b)
-                q.insert(a)
-                self.adj.insert(list_node(q))
-
-    def print_graph():
-        temp = adj.head
-        while(temp != null):
-            print("("+temp.data.head.team1+","+temp.data.head.team2+"),")
-            temp2 = temp.data.head.next
-            while(temp2 != null):
-                print("("+temp2.team1+","+temp2.team2+")")
-                temp2 = temp2.next
-
-            print()
-            temp = temp.next
+    def get_vertices(self):
+        return self.vertices
