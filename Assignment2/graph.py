@@ -7,12 +7,12 @@ class graph():
         self.cost_matrix = cost_matrix
         self.adj = [None]*len(vertices)
 
-    def has_edge(vertex1, vertex2):
+    def has_edge(self,vertex1, vertex2):
         if self.cost_matrix[vertex1-1][vertex2-1] > 0:
             return True
         return False
 
-    def add_edge(vertex1, vertex2):
+    def add_edge(self,vertex1, vertex2):
         # self.cost_matrix[vertex1-1][vertex2-1]=self.cost_matrix[vertex1-1][vertex2-1]+weight
         temp1 = self.adj[vertex1-1]
         if vertex2 not in temp1:
