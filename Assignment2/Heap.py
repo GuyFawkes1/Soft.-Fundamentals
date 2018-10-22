@@ -17,8 +17,8 @@ class Heap:
             lam = lam // 2
 
     def pop_min(self):
-        minimum = self.List[1][2]
-        if minimum ==0: #empty-heap
+        minimum = self.List[1]
+        if minimum[2] ==0: #empty-heap
             return 0
         
         self.List[1] = self.List[self.last] #replace the first with the last
