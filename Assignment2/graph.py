@@ -5,7 +5,7 @@ class graph():
     def __init__(self, vertices, cost_matrix):
         self.vertices = vertices
         self.cost_matrix = cost_matrix
-        self.adj = [collections.deque([])]*len(vertices)
+        self.adj = [list()]*(vertices)
 
     def has_edge(self, vertex1, vertex2):
         if self.cost_matrix[vertex1-1][vertex2-1] > 0:

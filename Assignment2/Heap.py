@@ -19,7 +19,7 @@ class Heap:
     def pop_min(self):
         minimum = self.List[1]
         if minimum[2] ==0: #empty-heap
-            return 0
+            return (0,0,0)
         
         self.List[1] = self.List[self.last] #replace the first with the last
         self.last = self.last - 1

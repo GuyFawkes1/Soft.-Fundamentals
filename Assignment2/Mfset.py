@@ -1,7 +1,7 @@
 class Mfset:
     
     def __init__(self,vertices):
-        self.setarray =  [0 for i in range(1,vertices+1)]
+        self.setarray =  [0 for i in range(0,vertices+1)]
         self.nosets = 0
     
     def find(self,x):
@@ -15,7 +15,7 @@ class Mfset:
         self.setarray[v]=setno
 
     def merge(self,a,b):
-        for i in range(1,len(self.setarray)+1):
+        for i in range(1,len(self.setarray)):
             if(self.setarray[i]==b):
                 self.setarray[i]=a
 
