@@ -5,7 +5,7 @@ class graph():
     def __init__(self, vertices, cost_matrix):
         self.vertices = vertices
         self.cost_matrix = cost_matrix
-        self.adj = [list()]*(vertices)
+        self.adj = [[] for z in range(self.vertices)]
 
     def has_edge(self, vertex1, vertex2):
         if self.cost_matrix[vertex1-1][vertex2-1] > 0:
@@ -23,3 +23,6 @@ class graph():
 
     def get_vertices(self):
         return self.vertices
+
+    def __return__(self):
+        return self.adj
