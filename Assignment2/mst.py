@@ -21,8 +21,8 @@ def assignment(cost_matrix):
 
  
     print('Prims algorithm MST(total cost: ', end='')
-   # prims(gr)
- 
+    # prims(gr)
+    # gr.cost_matrix = cost_matrix
     mst_krus = kruskals(gr)
     print(mst_krus.cost_matrix)
 

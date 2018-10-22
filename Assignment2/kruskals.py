@@ -12,14 +12,14 @@ def kruskals(graphs):
             if graphs.cost_matrix[i][graphs.adj[i][j]-1] >0:
                 heap.insert(i+1,graphs.adj[i][j],graphs.cost_matrix[i][graphs.adj[i][j]-1])
 
-    print(heap.List)
+   
 
     edgesadd=0
     left = graphs.vertices
     mfset = Mfset(left)
     while(edgesadd<graphs.vertices-1):
         minimum = heap.pop_min()
-        print(heap.List)
+      
         
         set1 = mfset.find(minimum[1])
         set2 = mfset.find(minimum[0])
@@ -54,8 +54,7 @@ def kruskals(graphs):
                 mst.cost_matrix[minimum[0]-1][minimum[1]-1]=graphs.cost_matrix[minimum[0]-1][minimum[1]-1]
                 mfset.merge(set1,set2)
                 edgesadd = edgesadd+1
-        print(mst.cost_matrix)
-        print(mfset.setarray)
+       
 
     return mst
 
