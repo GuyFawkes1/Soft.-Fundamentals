@@ -23,17 +23,19 @@ class graph():
 
     def cost(self):
         cost = 0
-        for i in range(0,vertices):
-            for j in range(0,len(adj[i])):
-                if cost_matrix[i][adj[i][j]]>0:
-                    cost = cost+cost_matrix[i][adj[i][j]]
-        return cost
+        for i in range(0,self.vertices):
+            for j in range(0,len(self.adj[i])):
+                if self.cost_matrix[i][self.adj[i][j]]>0:
+                    cost = cost+self.cost_matrix[i][self.adj[i][j]]
+        return cost/2
 
 
     def print(self):
-        for i in range(0,vertices):
-            for j in range(0,len(adj[i])):
-                print((i,adj[i][j]))
+        print(self.cost_matrix)
+        for i in range(0,self.vertices):
+            for j in range(i+1,self.vertices):
+                if cost_matrix[i][j]>0:
+                    print((i+1,self.adj[i][j]))
 
 
     def get_vertices(self):

@@ -7,15 +7,14 @@ class Mfset:
     def find(self,x):
         return self.setarray[x]
 
-    def insertnew(self,v):
+    def insertnew(self,v): #Insertion without a setno
         self.nosets = self.nosets+1
         self.setarray[v]=self.nosets
     
     def insert(self,v,setno):
         self.setarray[v]=setno
 
-    def merge(self,a,b):
+    def merge(self,a,b): 
         for i in range(1,len(self.setarray)):
             if(self.setarray[i]==b):
                 self.setarray[i]=a
-
